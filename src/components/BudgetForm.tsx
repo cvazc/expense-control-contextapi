@@ -1,17 +1,22 @@
-import { useState, ChangeEvent, useMemo } from "react";
+import { useState, ChangeEvent, useMemo, FormEvent } from "react";
 
 export default function BudgetForm() {
     const [budget, setBudget] = useState(0);
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-      setBudget(e.target.valueAsNumber)
+        setBudget(e.target.valueAsNumber);
     };
 
     const isValid = useMemo(() => {
-        return isNaN(budget) || budget <= 0
-    }, [budget])
+        return isNaN(budget) || budget <= 0;
+    }, [budget]);
+
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log('agregando')
+    };
 
     return (
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
             <div className="flex flex-col space-y-5">
                 <label
                     className="text-4xl text-blue-600 font-bold text-center"

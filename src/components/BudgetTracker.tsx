@@ -1,3 +1,5 @@
+import AmountDisplay from "./AmountDisplay"
+
 export default function BudgetTracker() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -11,6 +13,12 @@ export default function BudgetTracker() {
                 >
                     Resetear App
                 </button>
+
+                <AmountDisplay label="Presupuesto" amount={300} />
+
+                <AmountDisplay label="Disponible" amount={300} />
+
+                <AmountDisplay label="Gastado" amount={300} />
             </div>
         </div>
     )

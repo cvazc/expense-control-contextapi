@@ -5,10 +5,16 @@ import BudgetTracker from "./components/BudgetTracker"
 import AmountDisplay from "./components/AmountDisplay"
 import ExpenseModal from "./components/ExpenseModal"
 import ExpenseList from "./components/ExpenseList"
+import { useEffect } from "react"
 
 export default function App() {
     const { state } = useBudget()
     const isValidBudget = useMemo(() => state.budget > 0, [state])
+
+    useEffect(() => {
+        localStorage.setItem("budget", state.budget.toString())
+        localStorage.setItem("expenses", JSON.stringify(state.expenses))
+    }, [state])
 
     return (
         <>

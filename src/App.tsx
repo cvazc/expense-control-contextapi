@@ -5,6 +5,7 @@ import BudgetTracker from "./components/BudgetTracker"
 import ExpenseModal from "./components/ExpenseModal"
 import ExpenseList from "./components/ExpenseList"
 import { useEffect } from "react"
+import FilterByCategory from "./components/FilterByCategory"
 
 export default function App() {
     const { state } = useBudget()
@@ -28,6 +29,7 @@ export default function App() {
 
             {isValidBudget && (
                 <main className="max-w-3xl mx-auto py-10">
+                    <FilterByCategory />
                     <ExpenseList />
                     <ExpenseModal />
                 </main>
